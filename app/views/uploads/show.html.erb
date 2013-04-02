@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User name:</b>
+  <%= @upload.user_name %>
+</p>
+
+<p>
+  <b>Upload name:</b>
+  <%= @upload.upload_name %>
+</p>
+
+<p>
+  <b>Upload date:</b>
+  <%= @upload.upload_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_upload_path(@upload) %> |
+<%= link_to 'Back', uploads_path %>

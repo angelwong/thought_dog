@@ -1,4 +1,19 @@
 ThoughtDog::Application.routes.draw do
+  resources :uploads
+
+
+  resources :assignments
+
+
+  resources :sections
+
+
+  resources :courses
+
+
+  resources :users
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

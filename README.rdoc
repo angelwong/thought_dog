@@ -1,1 +1,21 @@
-I'm going to a NYC Beer Enthusiasts meetup on Wednesday, April at the Iron Monkey.
+Summary
+Thought Dog is an open source educational software platform being developed as part of Columbia University's COMS W3101 - Ruby on Rails Course.
+
+Homework 2 Notes
+-Parts 1-3 complete.
+-1 error in reference structure (see rails console code below)
+Nathan = User.new(:name => "Nathan", :email => "nathan@gmail.com")
+ROR = Course.new(:dept => "CS", :course_number => 3101, :course_name => "Ruby on Rails")
+Only = Section.new(:section_number => 01, :professor => "Emily stolfo")
+Homework2 = Assignment.new(:assignment_name => "Homework 2", :due_date => "07-04-2013")
+my_submission = Upload.new(:user_name => "Nathan", :upload_name => "thought_dog", :upload_date => "02-04-2013")
+Nathan.courses << ROR
+Nathan.uploads << my_submission
+ROR.users << Nathan # !!! error here !!!
+ROR.sections << Only
+Only.users << Nathan
+Only.assignments << Homework2
+Homework2.uploads << my_submission
+
+Homework 1 Notes
+I've signed up to attend a NYC Beer Enthusiasts meetup on Wednesday, April 3 at the Iron Monkey.
