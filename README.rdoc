@@ -7,8 +7,9 @@ Thought Dog is an open source educational software platform being developed by N
 
 -Parts 1-3 complete.
 
--1 error in reference structure (see rails console code below)
+-1 error in reference structure
 
+== Rails Console Commands
 Nathan = User.new(:name => "Nathan", :email => "nathan@gmail.com")
 
 ROR = Course.new(:dept => "CS", :course_number => 3101, :course_name => "Ruby on Rails")
