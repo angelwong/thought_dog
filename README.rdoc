@@ -5,12 +5,17 @@ Thought Dog is an open source educational software platform being developed by N
 
 == Homework 2 Notes
 
--Parts 1-3 complete.
+-Parts 1-4 complete, currently working on bonus
 
--1 error in reference structure
+-Mongoids has_and_belongs_to_many relationship was causing a mixed relation error when trying to link embedded objects (users and courses)
+-Added a new model (Enrollment) which embeds users, courses, and sections to avoid the issue
 
 == Rails Console Commands
-Nathan = User.new(:name => "Nathan", :email => "nathan@gmail.com")
+# Creating Objects
+
+first_enrollment = Enrollment.new
+
+Nathaniel = User.new(:name => "Nathan", :email => "nathan@gmail.com")
 
 ROR = Course.new(:dept => "CS", :course_number => 3101, :course_name => "Ruby on Rails")
 
@@ -20,19 +25,37 @@ Homework2 = Assignment.new(:assignment_name => "Homework 2", :due_date => "07-04
 
 my_submission = Upload.new(:user_name => "Nathan", :upload_name => "thought_dog", :upload_date => "02-04-2013")
 
-Nathan.courses << ROR
 
-Nathan.uploads << my_submission
+# Linking Objects
 
-ROR.users << Nathan # !!! error here !!!
+Nathaniel.uploads << my_submission
+
+first_enrollment.User = Nathaniel
+
+first_enrollment.Course = ROR
+
+first_enrollment.Section = Only
 
 ROR.sections << Only
-
-Only.users << Nathan
 
 Only.assignments << Homework2
 
 Homework2.uploads << my_submission
+
+
+# Saving Objects
+
+first_enrollment.save
+
+Nathaniel.save
+
+ROR.save
+
+Only.save
+
+Homework2.save
+
+my_submission.save
 
 
 == Homework 1 Notes

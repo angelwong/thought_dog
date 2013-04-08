@@ -1,9 +1,10 @@
 class Section
   include Mongoid::Document
-  field :section_number, type: Integer
-  field :professor, type: String
 
   embedded_in :course
-  embeds_many :users
+  embedded_in :enrollments
   embeds_many :assignments
+  
+  field :section_number, type: Integer
+  field :professor, type: String
 end
