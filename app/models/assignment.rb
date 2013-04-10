@@ -3,6 +3,5 @@ class Assignment
   field :assignment_name, type: String
   field :due_date, type: Date
 
-  embedded_in :sections
-  embeds_many :uploads
+  embedded_in :section
 end

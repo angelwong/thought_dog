@@ -1,8 +1,7 @@
 class User
   include Mongoid::Document
 
-  embedded_in :enrollments
-  embeds_many :uploads
+  has_and_belongs_to_many :courses
 
   field :name, type: String
   field :email, type: String

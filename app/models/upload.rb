@@ -4,6 +4,5 @@ class Upload
   field :upload_name, type: String
   field :upload_date, type: Date
 
-  embedded_in :user
-  embedded_in :assignment
+  embedded_in :course
 end
