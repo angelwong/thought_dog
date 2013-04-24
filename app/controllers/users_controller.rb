@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_filter :require_user, :only => [:new, :create]
+
   # GET /users
   # GET /users.json
   def index
@@ -26,6 +28,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
 
+    p params[:session][:email]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
