@@ -11,8 +11,9 @@ class ApplicationController < ActionController::Base
   
   def require_user
     if current_user
-      return true
+        return true
     end
     redirect_to login_path
   end
+
 end
