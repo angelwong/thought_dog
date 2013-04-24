@@ -1,8 +1,7 @@
 class Course
   include Mongoid::Document
 
-  embeds_many :sections
-  embeds_many :uploads
+  has_many :sections
   has_and_belongs_to_many :users
 
   field :dept, type: String
