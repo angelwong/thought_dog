@@ -1,10 +1,9 @@
 class Assignment
   include Mongoid::Document
+  	
+  has_and_belongs_to_many :users
 
-  embedded_in :section
-  has_many :uploads
-
-  field :assignment_name, type: String
-  field :due_date, type: Date
-
+  field :name, type: String
+  field :teacher, type: String
+  field :duedate, type: Time
 end

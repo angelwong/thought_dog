@@ -28,7 +28,6 @@ class UsersController < ApplicationController
   def new
     @user = User.new
 
-    p params[:session][:email]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }

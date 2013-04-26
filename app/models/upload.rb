@@ -1,10 +1,8 @@
 class Upload
   include Mongoid::Document
+  
+  belongs_to :user
 
-  belongs_to :assignment
-
-  field :user_name, type: String
-  field :upload_name, type: String
-  field :upload_date, type: Date
-
+  field :title, type: String
+  field :uploaddate, type: Time
 end
