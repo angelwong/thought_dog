@@ -1,27 +1,16 @@
 ThoughtDog::Application.routes.draw do
   resources :enrollments
-
-
   resources :uploads
-
-
   resources :assignments
-
-
   resources :sections
-
-
   resources :courses
-
-
   resources :users
-
   resource :session, :only => [:new, :create, :destroy]
 
   match "signup" => "users#new", :as => "signup"
   match "login" => "sessions#new", :as => "login"  
   match "logout" => "sessions#destroy", :as => "logout"
-  root :to => 'welcome#index'
+  root :to => 'session#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
