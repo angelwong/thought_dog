@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_path
   end
 
-
+  
 
   def is_admin
     p @current_user

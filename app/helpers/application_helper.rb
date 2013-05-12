@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def signed_in? #this was going to be used with cookies
+  def signed_in?
       return false
   end
 

@@ -11,19 +11,25 @@
     </div>
   <% end %>
 
+
   <div class="field">
-    <%= f.label :dept %><br />
-    <%= f.text_field :dept %>
+    <%= f.label :call_num %><br />
+    <%= f.text_field :call_num %>
   </div>
   <div class="field">
-    <%= f.label :course_number %><br />
-    <%= f.text_field :course_number %>
+    <%= f.label :course_title %><br />
+    <%= f.text_field :course_title %>
   </div>
   <div class="field">
-    <%= f.label :course_name %><br />
-    <%= f.text_field :course_name %>
+    <%= f.label :room %><br />
+    <%= f.text_field :room %>
+  </div>
+  <div class="field">
+    <%= f.label :instructor %><br />
+    <%= f.text_field :instructor %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

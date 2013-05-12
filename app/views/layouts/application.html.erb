@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-
- <div id ="wrap">
-  <title>ThoughtDog</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
- 
-  <%= csrf_meta_tags %>
-  <%= javascript_include_tag "application", "http://localhost:9292/faye.js" %> 
-
+<div id ="wrap">
+	<title>ThoughtDog</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= csrf_meta_tags %>
+	<%= javascript_include_tag "application", "http://localhost:9292/faye.js" %> 
 </head>
+
 <body>
 <%= render 'layouts/header' %>
-	<div class="container" id ="main">
-		  <%= yield %>
-	</div>
-	<%= render 'layouts/footer' %>
+<div class="container" id ="main">
+	<%= yield %>
+</div>
+<%= render 'layouts/footer' %>
 </body>
 </div>
 </html>

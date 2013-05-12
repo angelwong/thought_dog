@@ -4,7 +4,8 @@
       <%= link_to "Thought Dog", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Dashboard", '/users' %></li>
+          <li><%= link_to "Courses", '/courses' %></li>
+          <li><%= link_to "Users", '/users' %></li>
           <li><%= link_to "Help",    '/help' %></li>
           <% if !signed_in? %>
           <li><%= link_to "Sign in", '/login' %></li>
