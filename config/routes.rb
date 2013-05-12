@@ -1,4 +1,12 @@
 ThoughtDog::Application.routes.draw do
+
+  get "static_pages/home"
+  get "static_pages/help"
+
+  match "/home" => "static_pages#home", :as => "home"
+  match "/help" => "static_pages#help", :as => "help"
+
+  resources :announcements
   resources :enrollments
   resources :uploads
   resources :assignments
@@ -10,7 +18,7 @@ ThoughtDog::Application.routes.draw do
   match "signup" => "users#new", :as => "signup"
   match "login" => "sessions#new", :as => "login"  
   match "logout" => "sessions#destroy", :as => "logout"
-  root :to => 'session#new'
+  root :to => 'static_pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

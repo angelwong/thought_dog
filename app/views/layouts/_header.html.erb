@@ -1,0 +1,19 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "Thought Dog", root_path, id: "logo" %>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%= link_to "Dashboard", '/users' %></li>
+          <li><%= link_to "Help",    '/help' %></li>
+          <% if !signed_in? %>
+          <li><%= link_to "Sign in", '/login' %></li>
+          <%else%>
+          <li><%= link_to "Log out", '/logout' %></li>
+          <%end%>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+

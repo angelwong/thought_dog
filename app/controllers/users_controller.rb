@@ -44,8 +44,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-    p params
-    p '!!!!!!!'
     #redirect_to user_path(@user)
     respond_to do |format|
       if @user.save

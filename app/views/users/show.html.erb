@@ -10,15 +10,17 @@
   <%= @user.email %>
 </p>
 <p>
-  Courses  
+  <h4>Courses<h4/>
+  <div id ="courses">  
   <ul>
 <% @user.sections.each do |section| %>
 <li>
-		Section:<%= link_to section.num, section_path(section) %>
+		Section: <%= link_to section.num, section_path(section) %>
 		<br/>
-		Teacher:<%=section.teacher%>
-		<br/>
-		Announcements:
+		Teacher: <%=section.teacher%>
+		
+		<div id ="announcements">
+		<u><h6>Announcements: <h6/></u>
 		<% section.announcements.each do |announcement| %>
 		
 			<li>
@@ -28,8 +30,12 @@
 			  <%= link_to "Read more", announcement_path(announcement) %>
 			</li>
 		<%end%>
+		<div/>
+		
 </li>
+<br/>
   </ul>
+<div/>
 <%end%>
 
 </p>

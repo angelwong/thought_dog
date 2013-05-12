@@ -2,7 +2,6 @@
 
 <table>
   <tr>
-    <th>Dept</th>
     <th>Course number</th>
     <th>Course name</th>
     <th></th>
@@ -12,9 +11,8 @@
 
 <% @courses.each do |course| %>
   <tr>
-    <td><%= course.dept %></td>
-    <td><%= course.course_number %></td>
-    <td><%= course.course_name %></td>
+    <td><%= course.call_num %></td>
+    <td><%= course.course_title %></td>
     <td><%= link_to 'Show', course %></td>
     <td><%= link_to 'Edit', edit_course_path(course) %></td>
     <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
