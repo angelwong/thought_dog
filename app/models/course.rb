@@ -11,4 +11,6 @@ class Course
   field :room, type: String
   field :instructor, type: String
 
+  validates :course_title, presence: true
+
 end

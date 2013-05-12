@@ -4,3 +4,30 @@
 
 <%= link_to 'Show', @course %> |
 <%= link_to 'Back', courses_path %>
+
+<ul>
+<% @course.sections.each do |section| %>
+	<li>
+		<h1><%=section.num%></h1>
+		<%=section.teacher%>
+		<ul>
+		<% section.users.each do |user| %>
+			<li>
+				<%= user.name%>
+			</li>
+		<% end %>
+	    </ul>
+	    <%= form_tag(section_path(section), :method => "PUT") do %>
+	    <%= select_tag(:user_add, 
+	    	options_for_select(User.all.map {|u| [u.name, u.id]})) %>
+	    <%= submit_tag 'Add' %>
+		<% end %>
+		<%= form_tag(section_path(section), :method => "PUT") do %>
+	    <%= select_tag(:user_remove, 
+	    	options_for_select(User.all.map {|u| [u.name, u.id]})) %>
+	    <%= submit_tag 'Remove' %>
+		<% end %>	 	    
+	</li>
+<% end %>
+</ul>
+

@@ -9,7 +9,30 @@
   <b>Email:</b>
   <%= @user.email %>
 </p>
+<p>
+  Courses  
+  <ul>
+<% @user.sections.each do |section| %>
+<li>
+		Section:<%= link_to section.num, section_path(section) %>
+		<br/>
+		Teacher:<%=section.teacher%>
+		<br/>
+		Announcements:
+		<% section.announcements.each do |announcement| %>
+		
+			<li>
+			  <%=announcement.subject%>
+			  <br/>
+			  <%=announcement.teacher%>,
+			  <%= link_to "Read more", announcement_path(announcement) %>
+			</li>
+		<%end%>
+</li>
+  </ul>
+<%end%>
 
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

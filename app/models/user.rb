@@ -7,4 +7,13 @@ class User
 
   field :name, type: String
   field :email, type: String
+  field :role, type: String
+
+  before_save :default_values
+
+  def default_values
+    self.role ||= "Student"
+  end
+
+  validates :email, presence: true
 end

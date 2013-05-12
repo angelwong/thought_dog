@@ -10,10 +10,24 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   
   def require_user
+    #p "!!!!!!!!!!!!~~!~!~!~!~!~!~~~~~~~~~~~~~~~~~~"
     if current_user
-        return true
+     # p current_user
+      #p "stuff!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+      return true
     end
-    redirect_to login_path
+    redirect_to root_path
+  end
+
+  def is_admin
+    p "!!!!!!!!!!!!!!!!!!!!@!@!@~!~!~!~!~!~asdfasdfasdfasdfasdf!"
+    p @current_user
+    p "!!!!!!!!!!!!!!!!!!!!@!@!@~!~!~!~!~!~asdfasdfasdfsadf!asdfasdf"
+    if (@current_user != nil) && (@current_user.role == "Admin")
+      p "Admin works"
+      return true
+    end
+    redirect_to root_path
   end
 
 end

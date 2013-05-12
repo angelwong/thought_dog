@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
 
+    #user2 = User.find_by_email(params[:session][:email])
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
@@ -43,7 +44,9 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
+    p params
+    p '!!!!!!!'
+    #redirect_to user_path(@user)
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }

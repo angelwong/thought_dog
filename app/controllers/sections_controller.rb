@@ -1,4 +1,5 @@
 class SectionsController < ApplicationController
+  before_filter :is_admin, :only => [:update]
   # GET /sections
   # GET /sections.json
   def index
@@ -56,8 +57,13 @@ class SectionsController < ApplicationController
   # PUT /sections/1
   # PUT /sections/1.json
   def update
+
+    
     @section = Section.find(params[:id])
 
+   @section.users << User.find(params[:user_add]) if params[:user_add]
+    @section.users.delete(User.find(params[:user_remove])) if params[:user_remove]
+   # @section.announcements << Announcement.find(params[:announcement_add]) if params[:announcement_add]
     respond_to do |format|
       if @section.update_attributes(params[:section])
         format.html { redirect_to @section, notice: 'Section was successfully updated.' }
