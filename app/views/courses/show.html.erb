@@ -6,19 +6,19 @@
 </p>
 
 <p>
-  <b>Course name:</b>
+  <b>Course title:</b>
   <%= @course.course_title %>
 </p>
 
 <ul>
 	<% @course.sections.each do |section| %>
-	<li>
-			  <%=section.num%>
-			  <br/>
-			  <%= link_to "Section Page", section_path(section) %>
-	</li>
-	<% end %>
+	<p>
+		<%= link_to (section.num), section_path(section) %>
+		<%= " - " %>
+		<%= section.teacher %>
+	</p>
+		  <% end %>
 
-
+<br/>
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

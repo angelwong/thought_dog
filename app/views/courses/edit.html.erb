@@ -2,27 +2,17 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Course Page', @course %> |
+<%= link_to 'All Courses', courses_path %>
 
 <br/> 
-<%= form_for :section, :url => '/sections', :method => :post do |f| %>
-	<%= f.label "Create new Section" %>
-	Teacher: <%= f.text_field :teacher %>
-		<br/>
-	Section Num: <%= f.text_field :num %>
-	<%= f.hidden_field :add_section, :value => @course.id %>
 
-
-		<br/>
-		<%= submit_tag 'Create new section' %>
-	
-	<% end %>
 <br/>
 <ul>
+
 <% @course.sections.each do |section| %>
 	<li>
-		<h1><%=section.num%></h1>
+		<h4><%=section.num%></h4>
 		<%=section.teacher%>
 		<ul>
 		<% section.users.each do |user| %>
@@ -44,4 +34,17 @@
 	</li>
 <% end %>
 </ul>
+
+<%= form_for :section, :url => '/sections', :method => :post do |f| %>
+	<%= f.label "Add a Section" %>
+	Teacher: <%= f.text_field :teacher %>
+		<br/>
+	Section Num: <%= f.text_field :num %>
+	<%= f.hidden_field :add_section, :value => @course.id %>
+
+
+		<br/>
+		<%= submit_tag 'Create new section' %>
+	
+	<% end %>
 

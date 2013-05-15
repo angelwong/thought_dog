@@ -10,34 +10,32 @@
   <%= @section.teacher %>
 </p>
 
+<p>
+  <b>Announcements:</b>
+</p>
 <ul>
 	<% @section.announcements.each do |announcement| %>
 	<li>
-			  <%=announcement.subject%>
-			  <br/>
-			  <%=announcement.teacher%>,
-			  <%= link_to "Read more", announcement_path(announcement) %>
+		<%= link_to announcement.subject, announcement_path(announcement) %>
 	</li>
 <% end %>
-
+</ul>
 <br/>
-	<%= form_for :announcement, :url => '/announcements', :method => :post do |f| %>
-	<%= f.label "Create a new announcement" %>
+
+<%= form_for :announcement, :url => '/announcements', :method => :post do |f| %>
+	<p>
+		<b>Create a new announcement:</b>
+	</p>
 	Subject:<%= f.text_field :subject %>
-		<br/>
+	<br/>
 	Message:<%= f.text_field :message %>
 	<%= f.hidden_field :teacher, :value => @section.teacher %>
-		
 	<%= f.hidden_field :add_announcement, :value => @section.id %>
-
-<div class="actions">
+	<div class="actions">
 		<br/>
 		<%= submit_tag 'Post' %>
 	</div>
-	<% end %>
-
-
-
+<% end %>
 
 
 <%= link_to 'Edit', edit_section_path(@section) %> |
