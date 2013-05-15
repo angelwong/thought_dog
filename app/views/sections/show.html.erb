@@ -2,13 +2,42 @@
 
 <p>
   <b>Section number:</b>
-  <%= @section.section_number %>
+  <%= @section.num %>
 </p>
 
 <p>
   <b>Professor:</b>
-  <%= @section.professor %>
+  <%= @section.teacher %>
 </p>
+
+<ul>
+	<% @section.announcements.each do |announcement| %>
+	<li>
+			  <%=announcement.subject%>
+			  <br/>
+			  <%=announcement.teacher%>,
+			  <%= link_to "Read more", announcement_path(announcement) %>
+	</li>
+<% end %>
+
+<br/>
+	<%= form_for :announcement, :url => '/announcements', :method => :post do |f| %>
+	<%= f.label "Create a new announcement" %>
+	Subject:<%= f.text_field :subject %>
+		<br/>
+	Message:<%= f.text_field :message %>
+	<%= f.hidden_field :teacher, :value => @section.teacher %>
+		
+	<%= f.hidden_field :add_announcement, :value => @section.id %>
+
+<div class="actions">
+		<br/>
+		<%= submit_tag 'Post' %>
+	</div>
+	<% end %>
+
+
+
 
 
 <%= link_to 'Edit', edit_section_path(@section) %> |

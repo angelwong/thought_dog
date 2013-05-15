@@ -1,44 +1,38 @@
 <p id="notice"><%= notice %></p>
-
 <p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
+	<b>Name:</b>
+	<%= @user.name %>
 </p>
 <p>
-  <h4>Courses<h4/>
-  <div id ="courses">  
-  <ul>
-<% @user.sections.each do |section| %>
-<li>
+	<b>Email:</b>
+	<%= @user.email %>
+</p>
+<p>
+
+<div id ="courses">
+<ul>
+	<% @user.sections.each do |section| %> 
+	<li>
 		Section: <%= link_to section.num, section_path(section) %>
 		<br/>
-		Teacher: <%=section.teacher%>
-		
+		Instructor: <%=section.teacher%>
 		<div id ="announcements">
-		<u><h6>Announcements: <h6/></u>
+		<u>
+			<h6>
+			Announcements: 
+			<h6/>
+		</u>
 		<% section.announcements.each do |announcement| %>
-		
-			<li>
-			  <%=announcement.subject%>
-			  <br/>
-			  <%=announcement.teacher%>,
-			  <%= link_to "Read more", announcement_path(announcement) %>
-			</li>
-		<%end%>
-		<div/>
-		
-</li>
-<br/>
-  </ul>
+	<li>
+		<%= link_to announcement.subject, announcement_path(announcement) %>
+	</li>
+	<%end%>
+	<div/>
+	</li>
+	<br/>
+</ul>
 <div/>
 <%end%>
-
 </p>
-
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

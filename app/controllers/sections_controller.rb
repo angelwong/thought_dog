@@ -43,6 +43,8 @@ class SectionsController < ApplicationController
   def create
     @section = Section.new(params[:section])
 
+    Course.find(params[:section][:add_section]).sections << @section if params[:section][:add_section]
+
     respond_to do |format|
       if @section.save
         format.html { redirect_to @section, notice: 'Section was successfully created.' }

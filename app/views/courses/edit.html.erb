@@ -5,6 +5,20 @@
 <%= link_to 'Show', @course %> |
 <%= link_to 'Back', courses_path %>
 
+<br/> 
+<%= form_for :section, :url => '/sections', :method => :post do |f| %>
+	<%= f.label "Create new Section" %>
+	Teacher: <%= f.text_field :teacher %>
+		<br/>
+	Section Num: <%= f.text_field :num %>
+	<%= f.hidden_field :add_section, :value => @course.id %>
+
+
+		<br/>
+		<%= submit_tag 'Create new section' %>
+	
+	<% end %>
+<br/>
 <ul>
 <% @course.sections.each do |section| %>
 	<li>
