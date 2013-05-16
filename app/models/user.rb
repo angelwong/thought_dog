@@ -16,4 +16,5 @@ class User
   end
 
   validates :email, presence: true
+  # has both validations
 end
